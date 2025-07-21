@@ -24,43 +24,43 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; min-height: 100%; font-family: 'Inter', sans-serif; color: var(--text-color); background: linear-gradient(135deg, var(--background-dark), var(--background-light)); overflow-x: hidden; scroll-behavior: smooth; }
     body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('./background.jpg') no-repeat center center/cover; z-index: -2; opacity: 0.3; filter: blur(3px); }
-    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)); z-index: -1; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.3)); z-index: -1; }
 
-    .dock { display: flex; position: fixed; bottom: 0.3rem; left: 50%; transform: translateX(-50%); background: var(--card-bg); backdrop-filter: blur(14px); border-radius: 25px; padding: 0.2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 1000; align-items: center; justify-content: center; gap: 0.1rem; flex-wrap: wrap; width: 99%; max-width: 580px; }
-    .dock a { color: var(--text-color); font-size: 0.8rem; font-weight: 500; padding: 0.2rem 0.5rem; margin: 0; border-radius: 10px; background: var(--card-bg); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+    .dock { display: flex; position: fixed; bottom: 0.2rem; left: 50%; transform: translateX(-50%); background: var(--card-bg); backdrop-filter: blur(14px); border-radius: 25px; padding: 0.1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.4); z-index: 1000; align-items: center; justify-content: center; gap: 0.05rem; flex-wrap: wrap; width: 99.5%; max-width: 580px; }
+    .dock a { color: var(--text-color); font-size: 0.8rem; font-weight: 500; padding: 0.15rem 0.3rem; margin: 0; border-radius: 10px; background: var(--card-bg); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; white-space: nowrap; }
     .dock a:hover { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-    .content { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0.8rem 0.2rem; gap: 1.2rem; text-align: center; }
+    .content { width: 100%; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0.5rem 0.1rem; gap: 1rem; text-align: center; }
     h1 { font-size: 3.2rem; font-weight: 700; letter-spacing: 0.5px; animation: fadeIn 1.5s ease-out; text-shadow: 0 3px 8px rgba(0,0,0,0.5); background: linear-gradient(60deg, var(--primary-color), #6A4C4A, var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p { font-size: 1.3rem; font-weight: 400; opacity: 0.9; max-width: 99%; animation: fadeIn 2s ease-out; line-height: 1.6; text-align: center; }
-    .btn { margin-top: 1.2rem; padding: 0.7rem 2.8rem; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)); color: var(--text-color); border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; animation: fadeIn 2.5s ease-out; position: relative; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+    p { font-size: 1.3rem; font-weight: 400; opacity: 0.9; max-width: 99.5%; animation: fadeIn 2s ease-out; line-height: 1.6; text-align: center; }
+    .btn { margin-top: 1rem; padding: 0.6rem 2.5rem; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color)); color: var(--text-color); border: none; border-radius: 50px; font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; animation: fadeIn 2.5s ease-out; position: relative; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
     .btn:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); background: linear-gradient(45deg, var(--accent-color), var(--secondary-color), var(--primary-color)); }
 
-    .types, .services, .about, .locations-reviews, .contact { width: 99%; max-width: 1650px; margin: 0 auto; padding: 0.8rem 0.2rem; text-align: center; }
-    .types h2, .services h2, .about h2, .locations-reviews h2, .contact h2 { font-size: 2rem; font-weight: 600; margin-bottom: 0.8rem; background: linear-gradient(45deg, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+    .types, .services, .about, .locations-reviews, .contact { width: 99.5%; max-width: 1650px; margin: 0 auto; padding: 0.5rem 0.1rem; text-align: center; }
+    .types h2, .services h2, .about h2, .locations-reviews h2, .contact h2 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; background: linear-gradient(45deg, var(--primary-color), var(--accent-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
 
     .carousel-container { width: 100%; overflow: hidden; position: relative; }
     .service-track, .type-track, .review-track { display: flex; flex-wrap: nowrap; transition: transform 0.5s linear; }
     .service-track:hover, .type-track:hover, .review-track:hover { animation-play-state: paused; }
-    .service-card, .type-card, .review-card { flex: 0 0 auto; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 1.2rem; margin: 0 0.2rem; backdrop-filter: blur(12px); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer; }
+    .service-card, .type-card, .review-card { flex: 0 0 auto; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; padding: 1rem; margin: 0 0.1rem; backdrop-filter: blur(12px); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer; }
     .service-card:hover, .type-card:hover, .review-card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 10px 30px rgba(0,0,0,0.4); background: linear-gradient(135deg, rgba(74,44,42,0.2), rgba(255,245,230,0.1)); }
     .service-card::before, .type-card::before, .review-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,245,230,0.3), transparent); transition: left 0.5s ease; }
     .service-card:hover::before, .type-card:hover::before, .review-card:hover::before { left: 100%; }
     .service-card { font-size: 1.1rem; font-weight: 500; min-width: 180px; text-align: center; }
     .type-card { width: 220px; height: 280px; background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: center; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-    .type-card span { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)); width: 100%; text-align: center; padding: 1rem; font-size: 1.1rem; font-weight: 500; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
+    .type-card span { display: flex; flex-direction: column; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)); width: 100%; text-align: center; padding: 0.5rem; font-size: 0.9rem; font-weight: 500; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; }
 
     .calendar-container {
       display: none;
       max-width: 100%;
-      margin: 0.6rem auto;
-      padding: 0.2rem;
+      margin: 0.5rem auto;
+      padding: 0.1rem;
       text-align: center;
     }
     #calendar {
       background: var(--card-bg);
       border-radius: 8px;
-      padding: 0.4rem;
+      padding: 0.3rem;
       backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
@@ -95,50 +95,50 @@
     }
     .fc .fc-toolbar {
       text-align: center;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
     }
     .fc .fc-toolbar-title {
       text-align: center;
       margin-left: 0;
     }
 
-    .booking-form { width: 99%; max-width: 950px; margin: 0 auto; padding: 0.8rem; background: var(--card-bg); border-radius: 15px; border: 1px solid var(--card-border); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); text-align: center; }
-    .booking-form .form-group { position: relative; margin-bottom: 0.4rem; }
-    .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group textarea { width: 100%; padding: 0.7rem; border: 1px solid var(--card-border); border-radius: 10px; background: rgba(255,245,230,0.08); color: var(--text-color); font-size: 1rem; transition: all 0.3s ease; text-align: center; }
+    .booking-form { width: 99.5%; max-width: 950px; margin: 0 auto; padding: 0.6rem; background: var(--card-bg); border-radius: 15px; border: 1px solid var(--card-border); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); text-align: center; }
+    .booking-form .form-group { position: relative; margin-bottom: 0.3rem; }
+    .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group textarea { width: 100%; padding: 0.6rem; border: 1px solid var(--card-border); border-radius: 10px; background: rgba(255,245,230,0.08); color: var(--text-color); font-size: 1rem; transition: all 0.3s ease; text-align: center; }
     .booking-form .form-group select { font-size: 1.1rem; background: rgba(255,245,230,0.1); cursor: pointer; }
-    .booking-form .form-group select option { background: var(--background-dark); color: var(--text-color); padding: 0.5rem; }
+    .booking-form .form-group select option { background: var(--background-dark); color: var(--text-color); padding: 0.4rem; }
     .booking-form .form-group input:focus, .booking-form .form-group select:focus, .booking-form .form-group textarea:focus { outline: none; border-color: var(--primary-color); background: rgba(255,245,230,0.1); box-shadow: 0 0 10px rgba(74,44,42,0.3); }
     .booking-form .form-group input::placeholder, .booking-form .form-group textarea::placeholder { color: rgba(255,245,230,0.7); }
-    .booking-form button { width: 100%; padding: 0.7rem; margin: 0.4rem 0; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; border-radius: 10px; color: var(--text-color); font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .booking-form button { width: 100%; padding: 0.6rem; margin: 0.3rem 0; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; border-radius: 10px; color: var(--text-color); font-size: 1.2rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
     .booking-form button:hover { background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
 
     .review-card { width: 320px; text-align: left; }
     .review-card p { font-size: 1.1rem; font-style: italic; line-height: 1.6; }
     .review-card .author { font-size: 1rem; font-weight: 600; margin-top: 1rem; text-align: right; color: var(--primary-color); }
 
-    .photo-gallery { width: 99%; max-width: 950px; margin: 0.8rem auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem; }
-    .photo-gallery img { width: auto; height: auto; max-height: 250px; object-fit: cover; vertical-align: bottom; flex: 0 0 calc(33.33% - 0.15rem); }
+    .photo-gallery { width: 99.5%; max-width: 950px; margin: 0.5rem auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.1rem; }
+    .photo-gallery img { width: auto; height: auto; max-height: 250px; object-fit: cover; vertical-align: bottom; flex: 0 0 calc(33.33% - 0.1rem); }
 
-    .success-message { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--card-border); border-radius: 15px; padding: 1.5rem; text-align: center; color: var(--text-color); font-size: 1.2rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.4); z-index: 1001; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
+    .success-message { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); background: var(--card-bg); backdrop-filter: blur(12px); border: 1px solid var(--card-border); border-radius: 15px; padding: 1.2rem; text-align: center; color: var(--text-color); font-size: 1.2rem; font-weight: 500; box-shadow: 0 6px 20px rgba(0,0,0,0.4); z-index: 1001; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
     .success-message.show { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
 
     @media (max-width: 768px) {
-      .dock { width: 99.5%; max-width: 500px; bottom: 0.2rem; padding: 0.1rem; border-radius: 15px; gap: 0.05rem; }
-      .dock a { font-size: 0.7rem; padding: 0.15rem 0.3rem; margin: 0; }
+      .dock { width: 99.8%; max-width: 500px; bottom: 0.1rem; padding: 0.05rem; border-radius: 15px; gap: 0.03rem; }
+      .dock a { font-size: 0.7rem; padding: 0.1rem 0.2rem; margin: 0; }
       h1 { font-size: 2rem; }
-      p { font-size: 1rem; max-width: 99.5%; }
-      .btn { padding: 0.5rem 1.5rem; font-size: 1rem; }
+      p { font-size: 1rem; max-width: 99.8%; }
+      .btn { padding: 0.4rem 1.2rem; font-size: 1rem; }
       .service-card { min-width: 140px; font-size: 0.9rem; }
       .type-card { width: 150px; height: 200px; }
-      .type-card span { font-size: 0.9rem; }
+      .type-card span { font-size: 0.8rem; }
       .types h2, .services h2, .about h2, .locations-reviews h2, .contact h2 { font-size: 1.4rem; }
-      .booking-form { padding: 0.6rem; }
-      .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group textarea { font-size: 0.9rem; padding: 0.6rem; }
-      .booking-form button { font-size: 1rem; padding: 0.6rem; }
+      .booking-form { padding: 0.4rem; }
+      .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group textarea { font-size: 0.9rem; padding: 0.5rem; }
+      .booking-form button { font-size: 1rem; padding: 0.5rem; }
       .review-card { width: 280px; }
-      .photo-gallery { max-width: 100%; gap: 0.15rem; }
-      .photo-gallery img { max-height: 150px; flex: 0 0 calc(50% - 0.1rem); }
-      .success-message { padding: 1rem; font-size: 1rem; }
+      .photo-gallery { max-width: 100%; gap: 0.1rem; }
+      .photo-gallery img { max-height: 150px; flex: 0 0 calc(50% - 0.05rem); }
+      .success-message { padding: 0.8rem; font-size: 1rem; }
     }
 
     @media (min-width: 769px) { .dock { display: none; } }
@@ -210,19 +210,19 @@
       <div class="carousel-container">
         <div class="type-track">
           <a href="#mimi-clasic" class="type-card" style="background-image: url('./mime1.jpg');">
-            <span>🎭 Mimi Clasic</span>
+            <span>🎭<br>Mimi<br>Clasic</span>
           </a>
           <a href="#mimi-clown" class="type-card" style="background-image: url('./mime2.jpg');">
-            <span>🤹‍♂️ Mimi Clown</span>
+            <span>🤹‍♂️<br>Mimi<br>Clown</span>
           </a>
           <a href="#mimi-romantic" class="type-card" style="background-image: url('./mime3.jpg');">
-            <span>💌 Mimi Romantic</span>
+            <span>💌<br>Mimi<br>Romantic</span>
           </a>
           <a href="#mimi-filosof" class="type-card" style="background-image: url('./mime4.jpg');">
-            <span>🧠 Mimi Filosof</span>
+            <span>🧠<br>Mimi<br>Filosof</span>
           </a>
           <a href="#mimi-spectacol" class="type-card" style="background-image: url('./mime5.jpg');">
-            <span>🎪 Mimi Spectacol</span>
+            <span>🎪<br>Mimi<br>Spectacol</span>
           </a>
         </div>
       </div>
@@ -310,7 +310,7 @@
       <img src="photo5.jpg" alt="Galerie foto">
     </div>
 
-    <button id="back-to-top" class="btn" style="position: fixed; bottom: 1.2rem; right: 1.2rem; padding: 0.6rem 1rem; display: none;">⬆️</button>
+    <button id="back-to-top" class="btn" style="position: fixed; bottom: 1rem; right: 1rem; padding: 0.5rem 0.8rem; display: none;">⬆️</button>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
