@@ -268,7 +268,7 @@
     @media (min-width: 769px) { .dock { display: none; } }
 
     .required-field { position: relative; }
-    .required-field .mandatory-indicator { position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%); color: #fff(--secondary-color); font-size: 1.2em; font-weight: bold; transition: transform 0.3s ease, color 0.3s ease; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+    .required-field .mandatory-indicator { position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%); color: var(--secondary-color); font-size: 1.2em; font-weight: bold; transition: transform 0.3s ease, color 0.3s ease; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
     .required-field:hover .mandatory-indicator { transform: translateY(-50%) scale(1.2); color: var(--complementary-color); text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -451,7 +451,10 @@
       let calendar = new FullCalendar.Calendar(document.getElementById('calendar-container'), {
         initialView: 'dayGridMonth',
         locale: 'ro',
-        initialDate: '2025-07-21',
+        initialDate: new Date(),
+        validRange: {
+          start: new Date()
+        },
         headerToolbar: { left: 'prev,next today', center: '', right: 'title' },
         height: 'auto',
         contentHeight: 400,
@@ -552,7 +555,7 @@
         e.preventDefault();
         e.stopPropagation();
         calendarContainer.style.display = 'block';
-        calendar.gotoDate(moment('2025-07-21').toDate());
+        calendar.gotoDate(new Date());
       });
 
       const form = document.querySelector('.booking-form');
