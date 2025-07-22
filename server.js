@@ -1,11 +1,15 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
-const app = express();
-const port = 3000;
+const serverless = require('serverless-http'); // Add this for Vercel
 
+const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://2-0-beryl.vercel.app', // Allow your frontend domain
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 
 const uri = "mongodb+srv://myUser:MySecurePassword123@reservations.zjc2epf.mongodb.net/calendar_db?retryWrites=true&w=majority&appName=reservations";
 const client = new MongoClient(uri);
@@ -86,6 +90,5 @@ app.post('/reserve', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+// Export for Vercel serverless
+module.exports = serverless(app);
