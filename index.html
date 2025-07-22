@@ -258,7 +258,7 @@
       .type-card span { font-size: 0.7rem; padding: 0.3rem; }
       .types, .services, .about, .locations-reviews, .contact { padding: 1rem 0; }
       .booking-form { padding: 1rem 0; }
-      .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group textarea { font-size: 0.9rem; padding: 0.8rem; }
+      .booking-form .form-group input, .booking-form .form-group select, .booking-form .form-group Textarea { font-size: 0.9rem; padding: 0.8rem; }
       .booking-form button { font-size: 1rem; padding: 0.8rem; }
       .review-card { width: 250px; }
       .notification { font-size: 0.9rem; padding: 0.8rem 1.5rem; }
@@ -365,7 +365,7 @@
           <input type="text" id="name" name="name" placeholder="Nume" autocomplete="name">
         </div>
         <div class="form-group">
-          <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$">
+          <input type="email" id="email" name="email" placeholder="Email (opțional)" autocomplete="email">
         </div>
         <div class="form-group required-field">
           <input type="tel" id="phone" name="phone" placeholder="Număr de telefon (ex. +40712 345 678)" autocomplete="tel" required pattern="\+[0-9]{2}[0-9]{9}">
@@ -565,34 +565,44 @@
         const displayDate = form.querySelector('#booking-date').value || 'Nu a fost selectată';
         const dateForServer = displayDate !== 'Nu a fost selectată' ? moment(displayDate, 'D MMMM YYYY').format('YYYY-MM-DD') : '';
         const name = form.querySelector('#name').value.trim() || 'Fără nume';
-        const email = form.querySelector('#email').value.trim() || 'Fără email';
+        const email = form.querySelector('#email').value.trim();
         const eventType = form.querySelector('#event_type').value || 'Fără tip';
         const details = form.querySelector('#details').value.trim() || 'Fără detalii';
 
+        // Validare câmpuri obligatorii
         if (!phone || !displayDate || displayDate === 'Nu a fost selectată') {
-          showNotification('Câmpurile obligatorii (Număr de telefon și Data selectată) trebuie completate.', 'error');
+          showNotification('Te rugăm să completezi numărul de telefon și să selectezi o dată.', 'error');
           return;
         }
 
+        // Validare format telefon
         if (!/\+[0-9]{2}[0-9]{9}/.test(phone)) {
           showNotification('Numărul de telefon trebuie să fie în formatul +40712 345 678.', 'error');
           return;
         }
 
-        const response = await fetch(`http://localhost:3000/check/${dateForServer}`);
-        const data = await response.json();
-        if (data.count >= 4) {
-          showNotification('Ziua este complet rezervată!', 'error');
+        // Validare opțională pentru e-mail (dacă este completat)
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showNotification('Te rugăm să introduci un e-mail valid sau să lași câmpul gol.', 'error');
           return;
         }
 
+        // Verificare disponibilitate dată
+        const response = await fetch(`http://localhost:3000/check/${dateForServer}`);
+        const data = await response.json();
+        if (data.count >= 4) {
+          showNotification('Ziua este complet rezervată! Te rugăm să alegi altă dată.', 'error');
+          return;
+        }
+
+        // Trimitere cerere
         await fetch('http://localhost:3000/reserve', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ date: dateForServer, name, email, phone, eventType, details })
         });
 
-        showNotification('Rezervare salvată! Completează datele pentru confirmare ulterioară.', 'success');
+        showNotification('Cererea ta a fost trimisă! Îți vom contacta în curând pentru confirmare.', 'success');
         form.reset();
         calendar.getEvents().forEach(event => event.remove());
         calendarContainer.style.display = 'block';
